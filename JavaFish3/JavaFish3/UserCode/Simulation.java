@@ -8,6 +8,9 @@ package UserCode;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 import env3d.Env;
 import Framework.*;
+import Exceptions.*;
+import UserCode.Fish.*;
+import java.util.ArrayList;
 
 /**
  * Simulation is the top-level class for the Aquarium simulation.
@@ -26,7 +29,9 @@ public class Simulation
         
     // DECLARE a boolean that signals when the simulation loop should be exited:
     private boolean endSim = false;
-
+    
+    //DECLARE an ArrayList of type IDisplayObject, call it '_displayObjects':
+    private ArrayList<IDisplayObject> _displayObjects;
     
     /**
      * Constructor for objects of class Simulation
@@ -39,8 +44,27 @@ public class Simulation
         
         // _input:
         _input = (IInput) _world;
+        
+        // _displayObjects:
+        _displayObjects = new ArrayList<IDisplayObject>();
     }
-
+    
+    /**
+     * METHOD: Main
+     *
+     */
+    public static void main()
+    {
+        Simulation sim = new Simulation();
+        // Call the populate() method, spawns fish into the environment:
+        sim.populate();
+        sim.run();
+    }
+    
+    public void populate()
+    {
+        //_displayObjects.add(new JavaFish());
+    }
 
     /**
      * METHOD: Run the simulation loop.  User presses escape to exit.
