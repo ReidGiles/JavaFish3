@@ -33,6 +33,14 @@ public class Simulation
     //DECLARE an ArrayList of type IDisplayObject, call it '_displayObjects':
     private ArrayList<IDisplayObject> _displayObjects;
     
+    //DECLARE an ArrayList of type IFish, call it '_iFish':
+    private ArrayList<IFish> _iFish;
+    
+    // DECLARE an int, call it '_javaFishSpawn':
+    private int _javaFishSpawn;
+    // DECLARE an int, call it '_orangeFishSpawn':
+    private int _orangeFishSpawn;
+    
     /**
      * Constructor for objects of class Simulation
      */
@@ -47,6 +55,14 @@ public class Simulation
         
         // _displayObjects:
         _displayObjects = new ArrayList<IDisplayObject>();
+        
+        // _iFish:
+        _iFish = new ArrayList<IFish>();
+        
+        // INITIALISE _javaFishSpawn:
+        _javaFishSpawn = 2;
+        // INITIALISE _orangeFishSpawn:
+        _orangeFishSpawn = 2;
     }
     
     /**
@@ -63,7 +79,18 @@ public class Simulation
     
     public void populate()
     {
-        //_displayObjects.add(new JavaFish());
+        for (int i=0; i<_javaFishSpawn; i++)
+        {
+            IFish javaFish = new JavaFish();
+            // Retrieve displayObject from JavaFish
+            _displayObjects.add(javaFish.getDisplayObject());
+        }
+        for (int i=0; i<_orangeFishSpawn; i++)
+        {
+            IFish orangeFish = new OrangeFish();
+            _displayObjects.add(orangeFish.getDisplayObject());
+        }
+        
     }
 
     /**
@@ -79,7 +106,18 @@ public class Simulation
         try
         {
             // ADD Tokens to 3D world?:
-        
+            // Add each display object in _displayObjects to the aquarium:
+            for (int i=0; i<_displayObjects.size(); i++)
+            {
+                try
+                {
+                    _world.addDisplayObject(_displayObjects.get(i));
+                }
+                catch (WorldDoesNotExistException e)
+                {
+                    System.out.println("WorldDoesNotExistException caught");
+                }
+            }
             // Start simulation loop:
             while (!endSim)
             {

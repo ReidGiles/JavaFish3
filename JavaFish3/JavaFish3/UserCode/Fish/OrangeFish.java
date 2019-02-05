@@ -4,23 +4,23 @@ import Framework.IDisplayObject;
 import Framework.DisplayObject;
 
 /**
- * Write a description of class JavaFish here.
+ * Write a description of class OrangeFish here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class JavaFish implements IFish
+public class OrangeFish implements IFish
 {
     private IDisplayObject _displayObject;
     private double _speed;
-    private int _facingDirectionX;    
+    private int _facingDirectionX; 
     /**
-     * Constructor for objects of class JavaFish
+     * Constructor for objects of class OrangeFish
      */
-    public JavaFish()
+    public OrangeFish()
     {
-        _displayObject = new DisplayObject("models/billboard/billboard.obj", "textures/javaFish/JavaFish.png", 0.4);
-        _displayObject.translate(7,6,1);
+        _displayObject = new DisplayObject("models/billboard/billboard.obj", "textures/javaFish/Orange_Fish.png", 0.4);
+        _displayObject.translate(7,5,1);
         _displayObject.rotate(0,90,0);
         _speed = 0.05;
         _facingDirectionX = -1;
