@@ -6,4 +6,6 @@ comment1.target=JavaFish()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ JavaFish\r\n
 comment2.params=
 comment2.target=Framework.IDisplayObject\ getDisplayObject()
-numComments=3
+comment3.params=
+comment3.target=void\ update()
+numComments=4

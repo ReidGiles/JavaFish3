@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=IMovement
+comment0.text=\r\n\ The\ IMovement\ instance\ provides\ functionality\ to\ allow\ objects\ to\ receive\ x\ and\ y\ cords\ for\ various\ movement\ patterns,\ receive\ notification\ if\ the\ fish\ hits\ a\ boundry\ and\ update\ the\ movement\r\n\ class\ with\ the\ x\ and\ y\ location\ of\ the\ method\ caller.\r\n\ \r\n\ @author\ Reid\ Giles\r\n\ @version\ 25/01/2019\r\n
+comment1.params=
+comment1.target=double\ updateX()
+comment2.params=
+comment2.target=double\ updateY()
+comment3.params=x\ y
+comment3.target=void\ updateLocation(double,\ double)
+comment4.params=
+comment4.target=int\ bounce()
+numComments=5

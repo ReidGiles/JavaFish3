@@ -11,4 +11,5 @@ import Framework.IDisplayObject;
 public interface IFish
 {
     public IDisplayObject getDisplayObject();
+    public void update();
 }

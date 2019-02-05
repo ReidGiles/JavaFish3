@@ -2,6 +2,8 @@ package UserCode.Fish;
 
 import Framework.IDisplayObject;
 import Framework.DisplayObject;
+import UserCode.Movement.IMovement;
+import UserCode.Movement.HorizontalSwim;
 
 /**
  * Write a description of class JavaFish here.
@@ -14,6 +16,7 @@ public class JavaFish implements IFish
     private IDisplayObject _displayObject;
     private double _speed;
     private int _facingDirectionX;    
+    private IMovement _hSwim;
     /**
      * Constructor for objects of class JavaFish
      */
@@ -28,5 +31,8 @@ public class JavaFish implements IFish
     public IDisplayObject getDisplayObject()
     {
         return _displayObject;
+    }
+    public void update()
+    {
     }
 }

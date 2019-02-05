@@ -2,6 +2,8 @@ package UserCode.Fish;
 
 import Framework.IDisplayObject;
 import Framework.DisplayObject;
+import UserCode.Movement.IMovement;
+import UserCode.Movement.HorizontalSwim;
 
 /**
  * Write a description of class OrangeFish here.
@@ -28,5 +30,8 @@ public class OrangeFish implements IFish
     public IDisplayObject getDisplayObject()
     {
         return _displayObject;
+    }
+    public void update()
+    {
     }
 }

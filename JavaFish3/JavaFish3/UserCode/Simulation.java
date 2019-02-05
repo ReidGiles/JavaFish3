@@ -84,11 +84,13 @@ public class Simulation
             IFish javaFish = new JavaFish();
             // Retrieve displayObject from JavaFish
             _displayObjects.add(javaFish.getDisplayObject());
+            _iFish.add(javaFish);
         }
         for (int i=0; i<_orangeFishSpawn; i++)
         {
             IFish orangeFish = new OrangeFish();
             _displayObjects.add(orangeFish.getDisplayObject());
+            _iFish.add(orangeFish);
         }
         
     }
@@ -130,7 +132,10 @@ public class Simulation
                 }
                         
                 // UPDATE Objects in 3D world:
-            
+                for (IFish iFish : _iFish)
+                {
+                    iFish.update();
+                }
                 // UPDATE 3D World:
                 _world.update();
             }
