@@ -1,0 +1,14 @@
+package UserCode.Fish;
+
+import Framework.Interfaces.IDisplayObject;
+
+/**
+ * Write a description of interface IFish here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public interface IFish
+{
+    public void update();
+}
