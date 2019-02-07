@@ -32,7 +32,7 @@ public class Simulation
     private boolean endSim = false;
     
     //DECLARE an ArrayList of type IFish, call it '_iFish':
-    private ArrayList<IFish> _iFish;
+    private ArrayList<IUpdatable> _iFish;
     
     //DECLARE an ArrayList of type IDisplayObject, call it '_displayObjects':
     private ArrayList<IDisplayObject> _displayObjects;     
@@ -62,7 +62,7 @@ public class Simulation
         _displayObjects = new ArrayList<IDisplayObject>();
         
         // _iFish:
-        _iFish = new ArrayList<IFish>();
+        _iFish = new ArrayList<IUpdatable>();
         
         // INITIALISE _javaFishSpawn:
         _javaFishSpawn = 2;
@@ -87,14 +87,14 @@ public class Simulation
         for (int i=0; i<_javaFishSpawn; i++)
         {
             _displayObject = new DisplayObject("models/billboard/billboard.obj", "textures/javaFish/JavaFish.png", 0.4);
-            IFish javaFish = new JavaFish(_displayObject);
+            IUpdatable javaFish = new JavaFish(_displayObject);
             _displayObjects.add(_displayObject);
             _iFish.add(javaFish);
         }
         for (int i=0; i<_orangeFishSpawn; i++)
         {
             _displayObject = new DisplayObject("models/billboard/billboard.obj", "textures/javaFish/Orange_Fish.png", 0.4);
-            IFish orangeFish = new OrangeFish(_displayObject);
+            IUpdatable orangeFish = new OrangeFish(_displayObject);
             _displayObjects.add(_displayObject);
             _iFish.add(orangeFish);
         }
@@ -138,7 +138,7 @@ public class Simulation
                 }
                         
                 // UPDATE Objects in 3D world:
-                for (IFish iFish : _iFish)
+                for (IUpdatable iFish : _iFish)
                 {
                     iFish.update();
                 }
