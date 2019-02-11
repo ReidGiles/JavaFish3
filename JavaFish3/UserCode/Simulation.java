@@ -32,7 +32,7 @@ public class Simulation
     private boolean endSim = false;
     
     //DECLARE an ArrayList of type IFish, call it '_iFish':
-    private ArrayList<IUpdatable> _iFish;
+    private ArrayList<IUpdatable> _updatables;
     
     //DECLARE an ArrayList of type IDisplayObject, call it '_displayObjects':
     private ArrayList<IDisplayObject> _displayObjects;     
@@ -44,6 +44,9 @@ public class Simulation
     
     // DECLARE an int, call it '_orangeFishSpawn':
     private int _orangeFishSpawn;
+    
+    // DECLARE a reference to an IUpdatableFactory, call it '_factory':
+    private IUpdatableFactory _factory;
 
     
     /**
@@ -62,10 +65,14 @@ public class Simulation
         _displayObjects = new ArrayList<IDisplayObject>();
         
         // _iFish:
-        _iFish = new ArrayList<IUpdatable>();
+        _updatables = new ArrayList<IUpdatable>();
+        
+        // _factory
+        _factory = new UpdatableFactory();
         
         // INITIALISE _javaFishSpawn:
         _javaFishSpawn = 2;
+        
         // INITIALISE _orangeFishSpawn:
         _orangeFishSpawn = 2;
     }
@@ -86,17 +93,27 @@ public class Simulation
     {
         for (int i=0; i<_javaFishSpawn; i++)
         {
-            _displayObject = new DisplayObject("models/billboard/billboard.obj", "textures/javaFish/JavaFish.png", 0.4);
-            IUpdatable javaFish = new JavaFish(_displayObject);
-            _displayObjects.add(_displayObject);
-            _iFish.add(javaFish);
+            try
+            {
+                IUpdatable javaFish = _factory.create(JavaFish.class);
+                _updatables.add(javaFish);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Fail");
+            }
         }
         for (int i=0; i<_orangeFishSpawn; i++)
         {
-            _displayObject = new DisplayObject("models/billboard/billboard.obj", "textures/javaFish/Orange_Fish.png", 0.4);
-            IUpdatable orangeFish = new OrangeFish(_displayObject);
-            _displayObjects.add(_displayObject);
-            _iFish.add(orangeFish);
+            try
+            {
+                IUpdatable orangeFish = _factory.create(OrangeFish.class);
+                _updatables.add(orangeFish);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Fail");
+            }
         }
         
     }
@@ -114,17 +131,17 @@ public class Simulation
         try
         {
             // ADD Objects to 3D world?:
-            // Add each display object in _displayObjects to the aquarium:
-            for (int i=0; i<_displayObjects.size(); i++)
+            // Add each updatable in updatable to the aquarium:
+            for (IUpdatable updatable : _updatables)
             {
-                try
+                if (updatable instanceof JavaFish)
                 {
-                    _world.addDisplayObject(_displayObjects.get(i));
+                    ((ISpawnable) updatable).spawn(_world, 7, 6, 1, 0, 90, 0);
                 }
-                catch (WorldDoesNotExistException e)
+                if (updatable instanceof OrangeFish)
                 {
-                    System.out.println("WorldDoesNotExistException caught");
-                }
+                    ((ISpawnable) updatable).spawn(_world, 7, 5, 1, 0, 90, 0);
+                } 
             }
             // Start simulation loop:
             while (!endSim)
@@ -138,9 +155,9 @@ public class Simulation
                 }
                         
                 // UPDATE Objects in 3D world:
-                for (IUpdatable iFish : _iFish)
+                for (IUpdatable updatable : _updatables)
                 {
-                    iFish.update();
+                    updatable.update();
                 }
                 // UPDATE 3D World:
                 _world.update();
