@@ -1,19 +1,12 @@
 #BlueJ class context
 comment0.target=HorizontalSwim
 comment0.text=\r\n\ HorizontalSwim\ is\ a\ movement\ behaviour\ returns\ movements\ values\r\n\r\n\ @author\ Reid\ Giles\r\n\ @version\ 25/01/2019\r\n
-comment1.params=
-comment1.target=HorizontalSwim()
+comment1.params=pDisplayObject\ pX
+comment1.target=HorizontalSwim(Framework.Interfaces.IDisplayObject,\ double)
 comment1.text=\r\n\ HorizontalSwim\ Constructor\r\n\r\n\ @param\ pSpeed\ Passed\ speed\r\n\ @param\ pFacingDirectionX\ Passed\ facingDirectionX\r\n
-comment2.params=pX\ pY
-comment2.target=void\ updateLocation(double,\ double)
-comment2.text=\r\n\ Updates\ '_x'\ and\ '_y'\ with\ the\ x\ and\ y\ position\ of\ method\ caller\r\n\ \r\n\ @param\ \ pX\ \ \ x\ position\ of\ method\ caller\r\n\ @param\ \ pY\ \ \ y\ position\ of\ method\ caller\r\n
+comment2.params=
+comment2.target=void\ bounce()
+comment2.text=\r\n\ METHOD\:\ Notifies\ the\ caller\ when\ it\ leaves\ the\ aquarium\ boundries.\r\n\r\n\ @return\ An\ int\ that\ corrosponds\ with\ the\ boundry\ that\ was\ collided\ with\r\n
 comment3.params=
-comment3.target=int\ bounce()
-comment3.text=\r\n\ METHOD\:\ Notifies\ the\ caller\ when\ it\ leaves\ the\ aquarium\ boundries.\r\n\r\n\ @return\ An\ int\ that\ corrosponds\ with\ the\ boundry\ that\ was\ collided\ with\r\n
-comment4.params=
-comment4.target=double\ updateX()
-comment4.text=\r\n\ Generates\ speed\ for\ the\ method\ caller\r\n\r\n\ @return\ \ \ \ \ ?\r\n
-comment5.params=
-comment5.target=double\ updateY()
-comment5.text=\r\n\ Generates\ speed\ for\ the\ method\ caller\r\n\r\n\ @return\ \ \ \ \ ?\r\n
-numComments=6
+comment3.target=void\ update()
+numComments=4

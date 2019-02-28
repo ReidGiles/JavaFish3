@@ -48,7 +48,7 @@ public class RandomGen implements IRandomStart
     
     public int setFacingDirection()
     {
-        int direction = _rndGen.nextInt(1);
+        int direction = _rndGen.nextInt(2);
         if (direction == 1)
         {
             return 1;

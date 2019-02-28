@@ -28,6 +28,7 @@ public class JavaFish implements IUpdatable, ISpawnable
     private IMovement _hSwim;
     private double _speed;
     private int _facingDirectionX;
+    private double _startX;
     /**
      * Constructor for objects of class JavaFish
      */
@@ -35,7 +36,6 @@ public class JavaFish implements IUpdatable, ISpawnable
     {
         // INSTANTIATE _displayObject:
         _displayObject = new DisplayObject(_model, _texture, 0.3);
-        
         _speed = 0.05;
         _facingDirectionX = -1;
     }
@@ -59,12 +59,14 @@ public class JavaFish implements IUpdatable, ISpawnable
         _displayObject.rotate(xOrientation, yOrientation, zOrientation);
         
         // ADD to 3D world:
-
         world.addDisplayObject(_displayObject);
+        
+        _startX = xPosn;
+        _hSwim = new HorizontalSwim(_displayObject, _startX);
     }
     
     public void update()
     {
-        //_displayObject.translate(0.05,0, 0);
+        _hSwim.update();
     }
 }

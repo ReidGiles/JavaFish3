@@ -9,7 +9,7 @@ package RandomGen;
  */
 public interface IRandomStart
 {
-    public double setSpeed();
-    public double[] setLocation();
-    public int setFacingDirection();
+    double setSpeed();
+    double[] setLocation();
+    int setFacingDirection();
 }
