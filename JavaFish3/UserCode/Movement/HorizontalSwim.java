@@ -21,7 +21,9 @@ public class HorizontalSwim implements IMovement
     private double _speed;
     // DECLARE an int to store _facingDirectionX, call it '_facingDirectionX':
     private int _facingDirectionX;
+    // DECLARE a reference to an IRandomStart, call it '_rndStart':
     private IRandomStart _rndStart;
+    // DECLARE a reference to an IDisplayObject, call it '_displayObject':
     private IDisplayObject _displayObject;
     /**
      * HorizontalSwim Constructor
@@ -31,13 +33,23 @@ public class HorizontalSwim implements IMovement
      */
     public HorizontalSwim(IDisplayObject pDisplayObject, double pX)
     {
-        // Randomise speed and facing direction
-        _rndStart = new RandomGen();
-        _facingDirectionX = _rndStart.setFacingDirection();
-        _speed = _rndStart.setSpeed();
-        _speed *= _facingDirectionX;
+        // INITIALISE _displayObject, set it to pDisplayObject:
         _displayObject = pDisplayObject;
+        // INITIALISE _rndStart:
+        _rndStart = new RandomGen();
+        // INITIALISE _facingDirectionX, set it to a random direction (0 or 1):
+        _facingDirectionX = _rndStart.setFacingDirection();
+        // INITIALISE _speed, set it to a random speed (between ''):
+        _speed = _rndStart.setSpeed();
+        // Multiply speed by _facingDirectionX:
+        _speed *= _facingDirectionX;
+        // INITIALISE _x, set it to pX:
         _x = pX;
+        // Set initial rotation based on outcome of _facingDirectionX initialisation:
+        if (_facingDirectionX == 1)
+        {
+            _displayObject.rotate(0,180,0);
+        }
     }
     
     /**
@@ -47,13 +59,15 @@ public class HorizontalSwim implements IMovement
      */
     public void bounce()
     {
-        if (_x <= 1)
+        if (_x < 1)
         {
             _speed *= -1;
+            _displayObject.rotate(0,180,0);
         }
-        else if (_x >= 9)
+        else if (_x > 9)
         {
             _speed *= -1;
+            _displayObject.rotate(0,180,0);
         }
     }
     

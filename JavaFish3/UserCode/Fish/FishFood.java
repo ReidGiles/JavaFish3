@@ -4,44 +4,42 @@ import Framework.Interfaces.IDisplayObject;
 import Framework.Interfaces.IWorld;
 import Framework.Implementations.DisplayObject;
 import UserCode.Movement.IMovement;
-import UserCode.Movement.HorizontalSwim;
+import UserCode.Movement.Sink;
 import Framework.Interfaces.IUpdatable;
 import Exceptions.*;
 
 /**
- * Write a description of class JavaFish here.
+ * Write a description of class FishFood here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class JavaFish implements IUpdatable, ISpawnable
+public class FishFood implements IUpdatable, ISpawnable
 {
-    // DECLARE an IDisplayObject to represent this JavaFish, call it _displayObject:
+    // DECLARE an IDisplayObject to represent this fish food, call it _displayObject:
     private IDisplayObject _displayObject;
     
     // DECLARE a String to store the path to _displayObject's model, call it _model, and initialise it:
-    String _model = "models/billboard/billboard.obj";
+    String _model = "sphere";
     
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
-    String _texture = "textures/javaFish/JavaFish.png";
+    String _texture = "textures/javaFish/FishFood.png";
     
-    private IMovement _hSwim;
+    private IMovement _sink;
     private double _speed;
-    private int _facingDirectionX;
-    private double _startX;
+    private double _startY;
     /**
-     * Constructor for objects of class JavaFish
+     * Constructor for objects of class FishFood
      */
-    public JavaFish()
+    public FishFood()
     {
         // INSTANTIATE _displayObject:
-        _displayObject = new DisplayObject(_model, _texture, 0.3);
+        _displayObject = new DisplayObject(_model, _texture, 0.15);
         _speed = 0.05;
-        _facingDirectionX = -1;
     }
     
     /**
-     * METHOD: spawn the JavaFish at the given position/orientation
+     * METHOD: spawn the FishFood at the given position/orientation
      * @param world IWorld representing the 3D world.
      * @param Positionn double giving the position coordinates (x,y,z).
      * @param yPosn double giving the position along y axis.
@@ -52,21 +50,21 @@ public class JavaFish implements IUpdatable, ISpawnable
      */
     public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation) throws WorldDoesNotExistException
     {
-        // SET position of JavaFish by translating _displayObject:
+        // SET position of fish food by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
         
-        // SET orientation of JavaFish by rotating _displayObject:
+        // SET orientation of fish food by rotating _displayObject:
         _displayObject.rotate(xOrientation, yOrientation, zOrientation);
         
         // ADD to 3D world:
         world.addDisplayObject(_displayObject);
         
-        _startX = xPosn;
-        _hSwim = new HorizontalSwim(_displayObject, _startX);
+        _startY = yPosn;
+        _sink = new Sink(_displayObject, _startY);
     }
     
     public void update()
     {
-        _hSwim.update();
+        _sink.update();
     }
 }

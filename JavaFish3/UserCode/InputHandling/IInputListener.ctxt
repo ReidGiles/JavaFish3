@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=IInputListener
+comment0.text=\r\n\ IInputListener\:\ all\ listeners\ for\ input\ must\ implement\ this\ interface.\r\n\ \r\n\ @author\ Marc\ Price\ \r\n\ @version\ 0.1\r\n
+comment1.params=data
+comment1.target=void\ onInput(int[])
+comment1.text=\r\n\ Method\ to\ handle\ an\ input\ event\r\n\ \r\n\ @param\ data\ an\ array\ of\ integers\ containing\ the\ input\ data\r\n\ \r\n
+numComments=2
