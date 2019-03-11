@@ -31,10 +31,10 @@ public class HorizontalSwim implements IMovement
      * @param pSpeed Passed speed
      * @param pFacingDirectionX Passed facingDirectionX
      */
-    public HorizontalSwim(IDisplayObject pDisplayObject, double pX)
+    public HorizontalSwim()
     {
         // INITIALISE _displayObject, set it to pDisplayObject:
-        _displayObject = pDisplayObject;
+        //_displayObject = pDisplayObject;
         // INITIALISE _rndStart:
         _rndStart = new RandomGen();
         // INITIALISE _facingDirectionX, set it to a random direction (0 or 1):
@@ -44,7 +44,21 @@ public class HorizontalSwim implements IMovement
         // Multiply speed by _facingDirectionX:
         _speed *= _facingDirectionX;
         // INITIALISE _x, set it to pX:
+        //_x = pX;
+        // Set initial rotation based on outcome of _facingDirectionX initialisation:
+        /*if (_facingDirectionX == 1)
+        {
+            _displayObject.rotate(0,180,0);
+        }*/
+    }
+    
+    public void initialise(IDisplayObject pDisplayObject, double pX, double pY)
+    {
+        // INITIALISE _displayObject, set it to pDisplayObject:
+        _displayObject = pDisplayObject;
+        // INITIALISE _x, set it to pX:
         _x = pX;
+        _y = pY;
         // Set initial rotation based on outcome of _facingDirectionX initialisation:
         if (_facingDirectionX == 1)
         {

@@ -27,6 +27,7 @@ public class FishFood implements IUpdatable, ISpawnable
     
     private IMovement _sink;
     private double _speed;
+    private double _startX;
     private double _startY;
     /**
      * Constructor for objects of class FishFood
@@ -48,7 +49,7 @@ public class FishFood implements IUpdatable, ISpawnable
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
      */
-    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation) throws WorldDoesNotExistException
+    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
     {
         // SET position of fish food by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
@@ -59,8 +60,10 @@ public class FishFood implements IUpdatable, ISpawnable
         // ADD to 3D world:
         world.addDisplayObject(_displayObject);
         
+        _startX = xPosn;
         _startY = yPosn;
-        _sink = new Sink(_displayObject, _startY);
+        _sink = pMind;
+        pMind.initialise(_displayObject, _startX, _startY);
     }
     
     public void update()

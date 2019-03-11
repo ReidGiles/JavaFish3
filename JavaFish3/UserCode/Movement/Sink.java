@@ -12,6 +12,7 @@ import Framework.Implementations.DisplayObject;
  */
 public class Sink implements IMovement
 {
+    private double _x;
     // DECLARE a double to store object y value, call it '_y':
     private double _y;
     // DECLARE a double to store speed, call it '_speed':
@@ -24,13 +25,22 @@ public class Sink implements IMovement
      * @param pSpeed Passed speed
      * @param pFacingDirectionX Passed facingDirectionX
      */
-    public Sink(IDisplayObject pDisplayObject, double pY)
+    public Sink()
     {
         // INITIALISE _displayObject, set it to pDisplayObject:
-        _displayObject = pDisplayObject;
+        //_displayObject = pDisplayObject;
         // INITIALISE _speed, set it to a random speed (between ''):
         _speed = 0.005;
         // INITIALISE _y, set it to pY:
+        //_y = pY;
+    }
+    
+    public void initialise(IDisplayObject pDisplayObject, double pX, double pY)
+    {
+        // INITIALISE _displayObject, set it to pDisplayObject:
+        _displayObject = pDisplayObject;
+        _x = pX;
+        // INITIALISE _x, set it to pX:
         _y = pY;
     }
     

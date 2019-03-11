@@ -27,6 +27,9 @@ public class OrangeFish implements IUpdatable, ISpawnable
     
     private double _speed;
     private int _facingDirectionX;
+    private double _startX;
+    private double _startY;
+    private IMovement _mind;
     /**
      * Constructor for objects of class OrangeFish
      */
@@ -49,7 +52,7 @@ public class OrangeFish implements IUpdatable, ISpawnable
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
      */
-    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation) throws WorldDoesNotExistException
+    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
     {
         // SET position of Lion by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
@@ -60,9 +63,14 @@ public class OrangeFish implements IUpdatable, ISpawnable
         // ADD to 3D world:
 
         world.addDisplayObject(_displayObject);
+        _mind = pMind;
+        _startX = xPosn;
+        _startY = yPosn;
+        pMind.initialise(_displayObject, _startX, _startY);
     }
     
     public void update()
     {
+        _mind.update();
     }
 }

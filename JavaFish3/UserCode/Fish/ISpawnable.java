@@ -2,6 +2,7 @@ package UserCode.Fish;
 
 import Framework.Interfaces.IWorld;
 import Exceptions.*;
+import UserCode.Movement.*;
 
 
 /**
@@ -22,5 +23,5 @@ public interface ISpawnable
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
      */
-    void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation) throws WorldDoesNotExistException;
+    void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException;
 }

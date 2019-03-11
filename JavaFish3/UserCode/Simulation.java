@@ -12,6 +12,7 @@ import Framework.Implementations.*;
 import Exceptions.*;
 import RandomGen.*;
 import UserCode.Fish.*;
+import UserCode.Movement.*;
 import UserCode.ObjectCreation.*;
 import UserCode.InputHandling.*;
 import java.util.ArrayList;
@@ -185,11 +186,13 @@ public class Simulation implements IInputListener
             {
                 if (updatable instanceof JavaFish)
                 {
-                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0);
+                    IMovement mind = new HorizontalSwim();
+                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0, mind);
                 }
                 if (updatable instanceof OrangeFish)
                 {
-                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0);
+                    IMovement mind = new HorizontalSwim();
+                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0, mind);
                 }
             }
             // Start simulation loop:
@@ -222,7 +225,8 @@ public class Simulation implements IInputListener
                         _updatables.add(fishFood);
                         
                         // SPAWN fish food in 3D world:
-                        ((ISpawnable) fishFood).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2]);
+                        IMovement mind = new Sink();
+                        ((ISpawnable) fishFood).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2], mind);
                     }
                     catch (Exception e)
                     {

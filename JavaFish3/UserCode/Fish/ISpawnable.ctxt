@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=ISpawnable
 comment0.text=\r\n\ Write\ a\ description\ of\ interface\ ISpawnable\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=world\ xPosn\ yPosn\ zPosn\ xOrientation\ yOrientation\ zOrientation
-comment1.target=void\ spawn(Framework.Interfaces.IWorld,\ double,\ double,\ double,\ double,\ double,\ double)
+comment1.params=world\ xPosn\ yPosn\ zPosn\ xOrientation\ yOrientation\ zOrientation\ pMind
+comment1.target=void\ spawn(Framework.Interfaces.IWorld,\ double,\ double,\ double,\ double,\ double,\ double,\ UserCode.Movement.IMovement)
 comment1.text=\r\n\ METHOD\:\ spawn\ the\ ISpawnable\ at\ the\ given\ position/orientation\r\n\ @param\ world\ IWorld\ representing\ the\ 3D\ world.\r\n\ @param\ xPosn\ double\ giving\ the\ position\ along\ x\ axis.\r\n\ @param\ yPosn\ double\ giving\ the\ position\ along\ y\ axis.\r\n\ @param\ zPosn\ double\ giving\ position\ along\ z\ axis.\r\n\ @param\ xOrientation\ double\ giving\ the\ orientation\ about\ x\ axis.\r\n\ @param\ yOrientation\ double\ giving\ the\ orientation\ about\ y\ axis.\r\n\ @param\ zOrientation\ double\ giving\ orientation\ about\ z\ axis.\r\n
 numComments=2

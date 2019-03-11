@@ -29,6 +29,7 @@ public class JavaFish implements IUpdatable, ISpawnable
     private double _speed;
     private int _facingDirectionX;
     private double _startX;
+    private double _startY;
     /**
      * Constructor for objects of class JavaFish
      */
@@ -50,7 +51,7 @@ public class JavaFish implements IUpdatable, ISpawnable
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
      */
-    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation) throws WorldDoesNotExistException
+    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
     {
         // SET position of JavaFish by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
@@ -62,7 +63,10 @@ public class JavaFish implements IUpdatable, ISpawnable
         world.addDisplayObject(_displayObject);
         
         _startX = xPosn;
-        _hSwim = new HorizontalSwim(_displayObject, _startX);
+        _startY = yPosn;
+        //_hSwim = new HorizontalSwim(_displayObject, _startX);
+        _hSwim = pMind;
+        _hSwim.initialise(_displayObject, _startX, _startY);
     }
     
     public void update()

@@ -3,4 +3,6 @@ comment0.target=IMovement
 comment0.text=\r\n\ The\ IMovement\ instance\ provides\ functionality\ to\ allow\ objects\ to\ receive\ x\ and\ y\ cords\ for\ various\ movement\ patterns,\ receive\ notification\ if\ the\ fish\ hits\ a\ boundry\ and\ update\ the\ movement\r\n\ class\ with\ the\ x\ and\ y\ location\ of\ the\ method\ caller.\r\n\ \r\n\ @author\ Reid\ Giles\r\n\ @version\ 25/01/2019\r\n
 comment1.params=
 comment1.target=void\ update()
-numComments=2
+comment2.params=pDisplayObject\ pX\ pY
+comment2.target=void\ initialise(Framework.Interfaces.IDisplayObject,\ double,\ double)
+numComments=3

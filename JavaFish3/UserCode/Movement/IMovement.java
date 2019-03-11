@@ -1,4 +1,6 @@
 package UserCode.Movement;
+import Framework.Interfaces.IDisplayObject;
+import Framework.Implementations.DisplayObject;
 
 
 /**
@@ -11,4 +13,5 @@ package UserCode.Movement;
 public interface IMovement
 {
     void update();
+    void initialise(IDisplayObject pDisplayObject, double pX, double pY);
 }
