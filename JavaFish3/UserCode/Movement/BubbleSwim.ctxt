@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=BubbleSwim
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ BubbleSwim\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=BubbleSwim()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BubbleSwim\r\n
+comment2.params=pDisplayObject\ pX\ pY
+comment2.target=void\ initialise(Framework.Interfaces.IDisplayObject,\ double,\ double)
+comment3.params=
+comment3.target=int\ bounce()
+comment3.text=\r\n\ METHOD\:\ Notifies\ the\ caller\ when\ it\ leaves\ the\ aquarium\ boundries.\r\n\r\n\ @return\ An\ int\ that\ corrosponds\ with\ the\ boundry\ that\ was\ collided\ with\r\n
+comment4.params=
+comment4.target=void\ update()
+numComments=5

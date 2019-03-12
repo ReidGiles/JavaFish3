@@ -225,7 +225,7 @@ public class Simulation implements IInputListener
                         _updatables.add(fishFood);
                         
                         // SPAWN fish food in 3D world:
-                        IMovement mind = new Sink();
+                        IMovement mind = new BubbleSwim();
                         ((ISpawnable) fishFood).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2], mind);
                     }
                     catch (Exception e)

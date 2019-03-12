@@ -33,7 +33,7 @@ public class Bubble implements IUpdatable, ISpawnable
     /**
      * Constructor for objects of class Bubble
      */
-    public Bubble()
+    public Bubble(double pX, double pY)
     {
         _displayObject = new DisplayObject(_model, _texture, 0.3);
         _speed = 0.05;
@@ -66,6 +66,11 @@ public class Bubble implements IUpdatable, ISpawnable
         //_hSwim = new HorizontalSwim(_displayObject, _startX);
         _mind = pMind;
         _mind.initialise(_displayObject, _startX, _startY);
+    }
+    
+    public void reset(double pX, double pY, double pZ)
+    {
+        _displayObject.translate(pX, pY, pZ);
     }
     
     public void update()
