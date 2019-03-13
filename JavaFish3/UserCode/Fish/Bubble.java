@@ -2,6 +2,8 @@ package UserCode.Fish;
 
 import Framework.Interfaces.IDisplayObject;
 import Framework.Interfaces.IWorld;
+import Framework.Interfaces.IBoundsCheck;
+import Framework.Interfaces.IRemovable;
 import Framework.Implementations.DisplayObject;
 import UserCode.Movement.IMovement;
 import UserCode.Movement.HorizontalSwim;
@@ -14,13 +16,13 @@ import Exceptions.*;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Bubble implements IUpdatable, ISpawnable
+public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
 {
     // DECLARE an IDisplayObject to represent this JavaFish, call it _displayObject:
     private IDisplayObject _displayObject;
     
     // DECLARE a String to store the path to _displayObject's model, call it _model, and initialise it:
-    String _model = "models/billboard/billboard.obj";
+    String _model = "sphere";
     
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
     String _texture = "textures/javaFish/Bubble.png";
@@ -33,9 +35,9 @@ public class Bubble implements IUpdatable, ISpawnable
     /**
      * Constructor for objects of class Bubble
      */
-    public Bubble(double pX, double pY)
+    public Bubble()
     {
-        _displayObject = new DisplayObject(_model, _texture, 0.3);
+        _displayObject = new DisplayObject(_model, _texture, 0.15);
         _speed = 0.05;
         _facingDirectionX = -1;
     }
@@ -68,9 +70,24 @@ public class Bubble implements IUpdatable, ISpawnable
         _mind.initialise(_displayObject, _startX, _startY);
     }
     
-    public void reset(double pX, double pY, double pZ)
+    public void remove(IWorld pWorld)
     {
-        _displayObject.translate(pX, pY, pZ);
+        try
+        {
+            pWorld.removeDisplayObject(_displayObject);
+        }
+        catch (Exception e)
+        {
+        }
+    }
+    
+    public int boundsAlert()
+    {
+        if (( (IBoundsCheck) _mind).boundsAlert() == 1 )
+        {
+            return 1;
+        }
+        else return 0;
     }
     
     public void update()

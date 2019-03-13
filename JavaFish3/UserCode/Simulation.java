@@ -14,6 +14,7 @@ import RandomGen.*;
 import UserCode.Fish.*;
 import UserCode.Movement.*;
 import UserCode.ObjectCreation.*;
+import UserCode.Managers.*;
 import UserCode.InputHandling.*;
 import java.util.ArrayList;
 
@@ -63,6 +64,8 @@ public class Simulation implements IInputListener
     // DECLARE an int array, to store any mouse input to, initialise it to {-1,-1}, call it _mouseVal:
     private int[] _mouseVal = {-1,-1};
     
+    BubbleManager _bubbleManager;
+    
     /**
      * Constructor for objects of class Simulation
      */
@@ -74,11 +77,13 @@ public class Simulation implements IInputListener
         
         // _updatables:
         _updatables = new ArrayList<IUpdatable>();
-        
         try
         {
             // _world:
             _world = new Core();
+            
+            // _bubbleManager:
+            _bubbleManager = new BubbleManager(_world);
             
             // _input:
             _input = (IInput) _world;
@@ -95,6 +100,8 @@ public class Simulation implements IInputListener
         }
         // ADD _inputPublisher implementation to _updatables:
         _updatables.add((IUpdatable) _inputPublisher);
+        
+        _updatables.add((IUpdatable) _bubbleManager);
         
         // SUBSCRIBE this as listener to _inputPublisher:
         _inputPublisher.subscribe(this);
@@ -195,6 +202,7 @@ public class Simulation implements IInputListener
                     ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0, mind);
                 }
             }
+            _bubbleManager.spawnBubble(2,5,1);
             // Start simulation loop:
             while (!endSim)
             {
@@ -225,7 +233,7 @@ public class Simulation implements IInputListener
                         _updatables.add(fishFood);
                         
                         // SPAWN fish food in 3D world:
-                        IMovement mind = new BubbleSwim();
+                        IMovement mind = new Sink();
                         ((ISpawnable) fishFood).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2], mind);
                     }
                     catch (Exception e)

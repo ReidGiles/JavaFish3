@@ -9,4 +9,5 @@ package UserCode.Managers;
  */
 public interface IBubbleManager
 {
+    void update();
 }

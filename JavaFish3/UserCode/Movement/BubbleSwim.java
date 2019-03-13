@@ -3,6 +3,7 @@ package UserCode.Movement;
 import Exceptions.*;
 import RandomGen.*;
 import Framework.Interfaces.IDisplayObject;
+import Framework.Interfaces.IBoundsCheck;
 import Framework.Implementations.DisplayObject;
 
 /**
@@ -11,7 +12,7 @@ import Framework.Implementations.DisplayObject;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class BubbleSwim implements IMovement
+public class BubbleSwim implements IMovement, IBoundsCheck
 {
     // DECLARE a double to store object x value, call it '_x':
     private double _x;
@@ -67,13 +68,13 @@ public class BubbleSwim implements IMovement
      *
      * @return An int that corrosponds with the boundry that was collided with
      */
-    public int bounce()
+    public int boundsAlert()
     {
         if (_y > 7)
         {
             return 1;
         }
-        else return 2;
+        else return 0;
     }
     
     public void update()
@@ -85,7 +86,7 @@ public class BubbleSwim implements IMovement
         _speedY = (float)_rotationY * 0.03;
         
         _displayObject.translate(_speedY,_speedX, 0);
-        bounce();
+        boundsAlert();
         _y += _speedX;
     }
 }
