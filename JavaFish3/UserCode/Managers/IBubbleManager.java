@@ -10,4 +10,5 @@ package UserCode.Managers;
 public interface IBubbleManager
 {
     void update();
+    void spawnBubble(double pX, double pY, double pZ);
 }

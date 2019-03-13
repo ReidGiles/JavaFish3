@@ -2,6 +2,7 @@ package UserCode.Movement;
 
 import Exceptions.*;
 import RandomGen.*;
+import UserCode.Managers.*;
 import Framework.Interfaces.IDisplayObject;
 import Framework.Implementations.DisplayObject;
 
@@ -25,16 +26,14 @@ public class HorizontalSwim implements IMovement
     private IRandomStart _rndStart;
     // DECLARE a reference to an IDisplayObject, call it '_displayObject':
     private IDisplayObject _displayObject;
+    private IBubbleManager _bubbleManager;
+    
     /**
      * HorizontalSwim Constructor
      *
-     * @param pSpeed Passed speed
-     * @param pFacingDirectionX Passed facingDirectionX
      */
     public HorizontalSwim()
     {
-        // INITIALISE _displayObject, set it to pDisplayObject:
-        //_displayObject = pDisplayObject;
         // INITIALISE _rndStart:
         _rndStart = new RandomGen();
         // INITIALISE _facingDirectionX, set it to a random direction (0 or 1):
@@ -43,13 +42,24 @@ public class HorizontalSwim implements IMovement
         _speed = _rndStart.setSpeed();
         // Multiply speed by _facingDirectionX:
         _speed *= _facingDirectionX;
-        // INITIALISE _x, set it to pX:
-        //_x = pX;
-        // Set initial rotation based on outcome of _facingDirectionX initialisation:
-        /*if (_facingDirectionX == 1)
-        {
-            _displayObject.rotate(0,180,0);
-        }*/
+    }
+    
+    /**
+     * HorizontalSwim Constructor
+     *
+     */
+    public HorizontalSwim(IBubbleManager pBubbleManager)
+    {
+        // INITIALISE _rndStart:
+        _rndStart = new RandomGen();
+        // INITIALISE _facingDirectionX, set it to a random direction (0 or 1):
+        _facingDirectionX = _rndStart.setFacingDirection();
+        // INITIALISE _speed, set it to a random speed (between ''):
+        _speed = _rndStart.setSpeed();
+        // Multiply speed by _facingDirectionX:
+        _speed *= _facingDirectionX;
+        // INITIALISE _bubbleManager, set it to pBubbleManager:
+        _bubbleManager = pBubbleManager;
     }
     
     public void initialise(IDisplayObject pDisplayObject, double pX, double pY)
@@ -90,5 +100,9 @@ public class HorizontalSwim implements IMovement
         _displayObject.translate(_speed,0, 0);
         bounce();
         _x += _speed;
+        if (_bubbleManager != null)
+        {
+            _bubbleManager.spawnBubble(_x, _y, 1);
+        }
     }
 }

@@ -5,6 +5,7 @@ import Framework.Interfaces.IWorld;
 import Framework.Implementations.DisplayObject;
 import UserCode.Movement.IMovement;
 import UserCode.Movement.HorizontalSwim;
+import UserCode.Managers.*;
 import Framework.Interfaces.IUpdatable;
 import Exceptions.*;
 
@@ -67,7 +68,7 @@ public class JavaFish implements IUpdatable, ISpawnable
         //_hSwim = new HorizontalSwim(_displayObject, _startX);
         _hSwim = pMind;
         _hSwim.initialise(_displayObject, _startX, _startY);
-    }
+    }    
     
     public void update()
     {

@@ -193,7 +193,7 @@ public class Simulation implements IInputListener
             {
                 if (updatable instanceof JavaFish)
                 {
-                    IMovement mind = new HorizontalSwim();
+                    IMovement mind = new HorizontalSwim(_bubbleManager);
                     ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0, mind);
                 }
                 if (updatable instanceof OrangeFish)

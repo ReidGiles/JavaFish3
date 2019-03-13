@@ -2,12 +2,12 @@
 objectbench.height=93
 objectbench.width=673
 package.divider.horizontal=0.6
-package.divider.vertical=0.6563573883161512
-package.editor.height=184
+package.divider.vertical=0.658703071672355
+package.editor.height=186
 package.editor.width=583
-package.editor.x=-8
-package.editor.y=776
-package.frame.height=391
+package.editor.x=-7
+package.editor.y=757
+package.frame.height=393
 package.frame.width=713
 package.numDependencies=0
 package.numTargets=4
