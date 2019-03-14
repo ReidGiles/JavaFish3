@@ -7,21 +7,27 @@ import Framework.Interfaces.IDisplayObject;
 import Framework.Implementations.DisplayObject;
 
 /**
- * HorizontalSwim is a movement behaviour returns movements values
+ * DiagonalSwim is a movement behaviour returns movements values
  *
  * @author Reid Giles
  * @version 25/01/2019
  */
-public class HorizontalSwim implements IMovement
+public class DiagonalSwim implements IMovement
 {
     // DECLARE a double to store object x value, call it '_x':
     private double _x;
     // DECLARE a double to store object y value, call it '_y':
     private double _y;
-    // DECLARE a double to store speed, call it '_speed':
-    private double _speed;
+    // DECLARE a double to store start speed, call it '_initialSpeed':
+    private double _initialSpeed;
+    // DECLARE a double to store x speed, call it '_speedX':
+    private double _speedX;
+    // DECLARE a double to store y speed, call it '_speedY':
+    private double _speedY;
     // DECLARE an int to store _facingDirectionX, call it '_facingDirectionX':
     private int _facingDirectionX;
+    // DECLARE an int to store _facingDirectionY, call it '_facingDirectionY':
+    private int _facingDirectionY;
     // DECLARE a reference to an IRandomStart, call it '_rndStart':
     private IRandomStart _rndStart;
     // DECLARE a reference to an IDisplayObject, call it '_displayObject':
@@ -29,35 +35,43 @@ public class HorizontalSwim implements IMovement
     private IBubbleManager _bubbleManager;
     
     /**
-     * HorizontalSwim Constructor
+     * DiagonalSwim Constructor
      *
      */
-    public HorizontalSwim()
+    public DiagonalSwim()
     {
         // INITIALISE _rndStart:
         _rndStart = new RandomGen();
         // INITIALISE _facingDirectionX, set it to a random direction (0 or 1):
         _facingDirectionX = _rndStart.setFacingDirection();
-        // INITIALISE _speed, set it to a random speed (between ''):
-        _speed = _rndStart.setSpeed();
-        // Multiply speed by _facingDirectionX:
-        _speed *= _facingDirectionX;
+        // INITIALISE _facingDirectionY, set it to a random direction (0 or 1):
+        _facingDirectionY = _rndStart.setFacingDirection();
+        // INITIALISE _initialSpeed, set it to a random speed (between ''):
+        _initialSpeed = _rndStart.setSpeed();
+        // INITIALISE _speedX, set it to _initialSpeed * _facingDirectionX:
+        _speedX = _initialSpeed * _facingDirectionX;
+        // INITIALISE _speedX, set it to _initialSpeed * _facingDirectionY:
+        _speedY = _initialSpeed * _facingDirectionY;
     }
     
     /**
-     * HorizontalSwim Constructor
+     * DiagonalSwim Constructor
      *
      */
-    public HorizontalSwim(IBubbleManager pBubbleManager)
+    public DiagonalSwim(IBubbleManager pBubbleManager)
     {
         // INITIALISE _rndStart:
         _rndStart = new RandomGen();
         // INITIALISE _facingDirectionX, set it to a random direction (0 or 1):
         _facingDirectionX = _rndStart.setFacingDirection();
-        // INITIALISE _speed, set it to a random speed (between ''):
-        _speed = _rndStart.setSpeed();
-        // Multiply speed by _facingDirectionX:
-        _speed *= _facingDirectionX;
+        // INITIALISE _facingDirectionY, set it to a random direction (0 or 1):
+        _facingDirectionY = _rndStart.setFacingDirection();
+        // INITIALISE _initialSpeed, set it to a random speed (between ''):
+        _initialSpeed = _rndStart.setSpeed();
+        // INITIALISE _speedX, set it to _initialSpeed * _facingDirectionX:
+        _speedX = _initialSpeed * _facingDirectionX;
+        // INITIALISE _speedX, set it to _initialSpeed * _facingDirectionY:
+        _speedY = _initialSpeed * _facingDirectionY;
         // INITIALISE _bubbleManager, set it to pBubbleManager:
         _bubbleManager = pBubbleManager;
     }
@@ -85,25 +99,30 @@ public class HorizontalSwim implements IMovement
     {
         if (_x < 1)
         {
-            _speed *= -1;
+            _speedX *= -1;
             _displayObject.rotate(0,180,0);
         }
-        else if (_x > 9)
+        if (_x > 9)
         {
-            _speed *= -1;
+            _speedX *= -1;
             _displayObject.rotate(0,180,0);
+        }
+        if (_y < 1)
+        {
+            _speedY *= -1;
+        }
+        if (_y > 7)
+        {
+            _speedY *= -1;
         }
     }
     
-    /**
-     * METHOD:
-     *
-     */
     public void update()
     {
-        _displayObject.translate(_speed,0, 0);
+        _displayObject.translate(_speedX,_speedY, 0);
         bounce();
-        _x += _speed;
+        _x += _speedX;
+        _y += _speedY;
         if (_bubbleManager != null)
         {
             _bubbleManager.spawnBubble(_x, _y, 1);

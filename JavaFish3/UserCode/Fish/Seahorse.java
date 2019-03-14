@@ -5,45 +5,45 @@ import Framework.Interfaces.IWorld;
 import Framework.Implementations.DisplayObject;
 import UserCode.Movement.IMovement;
 import UserCode.Movement.HorizontalSwim;
+import UserCode.Managers.*;
 import Framework.Interfaces.IUpdatable;
 import Exceptions.*;
 
 /**
- * Write a description of class OrangeFish here.
+ * Write a description of class Seahorse here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class OrangeFish implements IUpdatable, ISpawnable
+public class Seahorse implements IUpdatable, ISpawnable
 {
-    // DECLARE an IDisplayObject to represent this Lion, call it _displayObject:
+    // DECLARE an IDisplayObject to represent this Seahorse, call it _displayObject:
     private IDisplayObject _displayObject;
     
     // DECLARE a String to store the path to _displayObject's model, call it _model, and initialise it:
     String _model = "models/billboard/billboard.obj";
     
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
-    String _texture = "textures/javaFish/Orange_Fish.png";
+    String _texture = "textures/javaFish/Seahorse.png";
     
+    private IMovement _mind;
     private double _speed;
     private int _facingDirectionX;
     private double _startX;
     private double _startY;
-    private IMovement _mind;
     /**
-     * Constructor for objects of class OrangeFish
+     * Constructor for objects of class Seahorse
      */
-    public OrangeFish()
+    public Seahorse()
     {
         // INSTANTIATE _displayObject:
-        _displayObject = new DisplayObject(_model, _texture, 0.3);
-        
+        _displayObject = new DisplayObject(_model, _texture, 0.15);
         _speed = 0.05;
         _facingDirectionX = -1;
     }
     
     /**
-     * METHOD: spawn the Lion at the given position/orientation
+     * METHOD: spawn the Seahorse at the given position/orientation
      * @param world IWorld representing the 3D world.
      * @param Positionn double giving the position coordinates (x,y,z).
      * @param yPosn double giving the position along y axis.
@@ -51,24 +51,30 @@ public class OrangeFish implements IUpdatable, ISpawnable
      * @param xOrientation double giving the orientation about x axis.
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
+     * @param pMind IMovement giving movement behaviour.
      */
     public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
     {
-        // SET position of Lion by translating _displayObject:
+        // SET position of Seahorse by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
         
-        // SET orientation of Lion by rotating _displayObject:
+        // SET orientation of Seahorse by rotating _displayObject:
         _displayObject.rotate(xOrientation, yOrientation, zOrientation);
         
         // ADD to 3D world:
-
         world.addDisplayObject(_displayObject);
-        _mind = pMind;
+        
         _startX = xPosn;
         _startY = yPosn;
-        pMind.initialise(_displayObject, _startX, _startY);
-    }
+        //_hSwim = new HorizontalSwim(_displayObject, _startX);
+        _mind = pMind;
+        _mind.initialise(_displayObject, _startX, _startY);
+    }    
     
+    /**
+     * METHOD: to set the next frame of the simulation, called on each pass of the simulation
+     *
+     */
     public void update()
     {
         _mind.update();

@@ -1,12 +1,12 @@
 #BlueJ class context
-comment0.target=HorizontalSwim
-comment0.text=\r\n\ HorizontalSwim\ is\ a\ movement\ behaviour\ returns\ movements\ values\r\n\r\n\ @author\ Reid\ Giles\r\n\ @version\ 25/01/2019\r\n
+comment0.target=DiagonalSwim
+comment0.text=\r\n\ DiagonalSwim\ is\ a\ movement\ behaviour\ returns\ movements\ values\r\n\r\n\ @author\ Reid\ Giles\r\n\ @version\ 25/01/2019\r\n
 comment1.params=
-comment1.target=HorizontalSwim()
-comment1.text=\r\n\ HorizontalSwim\ Constructor\r\n\r\n
+comment1.target=DiagonalSwim()
+comment1.text=\r\n\ DiagonalSwim\ Constructor\r\n\r\n
 comment2.params=pBubbleManager
-comment2.target=HorizontalSwim(UserCode.Managers.IBubbleManager)
-comment2.text=\r\n\ HorizontalSwim\ Constructor\r\n\r\n
+comment2.target=DiagonalSwim(UserCode.Managers.IBubbleManager)
+comment2.text=\r\n\ DiagonalSwim\ Constructor\r\n\r\n
 comment3.params=pDisplayObject\ pX\ pY
 comment3.target=void\ initialise(Framework.Interfaces.IDisplayObject,\ double,\ double)
 comment4.params=
@@ -14,5 +14,4 @@ comment4.target=void\ bounce()
 comment4.text=\r\n\ METHOD\:\ Notifies\ the\ caller\ when\ it\ leaves\ the\ aquarium\ boundries.\r\n\r\n\ @return\ An\ int\ that\ corrosponds\ with\ the\ boundry\ that\ was\ collided\ with\r\n
 comment5.params=
 comment5.target=void\ update()
-comment5.text=\r\n\ METHOD\:\r\n\r\n
 numComments=6

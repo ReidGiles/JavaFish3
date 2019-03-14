@@ -10,21 +10,21 @@ import Framework.Interfaces.IUpdatable;
 import Exceptions.*;
 
 /**
- * Write a description of class JavaFish here.
+ * Write a description of class Piranha here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class JavaFish implements IUpdatable, ISpawnable
+public class Piranha implements IUpdatable, ISpawnable
 {
-    // DECLARE an IDisplayObject to represent this JavaFish, call it _displayObject:
+    // DECLARE an IDisplayObject to represent this Piranha, call it _displayObject:
     private IDisplayObject _displayObject;
     
     // DECLARE a String to store the path to _displayObject's model, call it _model, and initialise it:
     String _model = "models/billboard/billboard.obj";
     
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
-    String _texture = "textures/javaFish/JavaFish.png";
+    String _texture = "textures/javaFish/PiranhaGreen.png";
     
     private IMovement _mind;
     private double _speed;
@@ -32,9 +32,9 @@ public class JavaFish implements IUpdatable, ISpawnable
     private double _startX;
     private double _startY;
     /**
-     * Constructor for objects of class JavaFish
+     * Constructor for objects of class Piranha
      */
-    public JavaFish()
+    public Piranha()
     {
         // INSTANTIATE _displayObject:
         _displayObject = new DisplayObject(_model, _texture, 0.15);
@@ -43,7 +43,7 @@ public class JavaFish implements IUpdatable, ISpawnable
     }
     
     /**
-     * METHOD: spawn the JavaFish at the given position/orientation
+     * METHOD: spawn the Piranha at the given position/orientation
      * @param world IWorld representing the 3D world.
      * @param Positionn double giving the position coordinates (x,y,z).
      * @param yPosn double giving the position along y axis.
@@ -55,10 +55,10 @@ public class JavaFish implements IUpdatable, ISpawnable
      */
     public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
     {
-        // SET position of JavaFish by translating _displayObject:
+        // SET position of Piranha by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
         
-        // SET orientation of JavaFish by rotating _displayObject:
+        // SET orientation of Piranha by rotating _displayObject:
         _displayObject.rotate(xOrientation, yOrientation, zOrientation);
         
         // ADD to 3D world:

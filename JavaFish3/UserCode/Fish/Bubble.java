@@ -37,9 +37,7 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
      */
     public Bubble()
     {
-        _displayObject = new DisplayObject(_model, _texture, 0.15);
-        _speed = 0.05;
-        _facingDirectionX = -1;
+        _displayObject = new DisplayObject(_model, _texture, 0.05);
     }
     
     /**
@@ -51,6 +49,7 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
      * @param xOrientation double giving the orientation about x axis.
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
+     * @param pMind IMovement giving movement behaviour.
      */
     public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
     {
@@ -70,6 +69,11 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
         _mind.initialise(_displayObject, _startX, _startY);
     }
     
+    /**
+     * METHOD: Remove displayObject from the world
+     *
+     * @param pWorld A parameter
+     */
     public void remove(IWorld pWorld)
     {
         try
@@ -81,6 +85,11 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
         }
     }
     
+    /**
+     * METHOD: Alert method called when the bubbles leaves the aquarium
+     *
+     * @return int representing the four aquarium boundaries
+     */
     public int boundsAlert()
     {
         if (( (IBoundsCheck) _mind).boundsAlert() == 1 )
@@ -90,6 +99,10 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
         else return 0;
     }
     
+    /**
+     * METHOD: to set the next frame of the simulation, called on each pass of the simulation
+     *
+     */
     public void update()
     {
         _mind.update();

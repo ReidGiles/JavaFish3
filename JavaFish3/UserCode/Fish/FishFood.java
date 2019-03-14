@@ -35,7 +35,7 @@ public class FishFood implements IUpdatable, ISpawnable
     public FishFood()
     {
         // INSTANTIATE _displayObject:
-        _displayObject = new DisplayObject(_model, _texture, 0.15);
+        _displayObject = new DisplayObject(_model, _texture, 0.05);
         _speed = 0.05;
     }
     
@@ -48,6 +48,7 @@ public class FishFood implements IUpdatable, ISpawnable
      * @param xOrientation double giving the orientation about x axis.
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
+     * @param pMind IMovement giving movement behaviour.
      */
     public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
     {
@@ -66,6 +67,10 @@ public class FishFood implements IUpdatable, ISpawnable
         pMind.initialise(_displayObject, _startX, _startY);
     }
     
+    /**
+     * METHOD: to set the next frame of the simulation, called on each pass of the simulation
+     *
+     */
     public void update()
     {
         _sink.update();

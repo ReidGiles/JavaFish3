@@ -42,7 +42,7 @@ public class BubbleSwim implements IMovement, IBoundsCheck
         // INITIALISE _rndStart:
         _rndStart = new RandomGen();
         // INITIALISE _initialSpeed:
-        _initialSpeed = 0.005;
+        _initialSpeed = 0.05;
         // INITIALISE _facingDirectionX:
         _facingDirectionX = 1;
         // INITIALISE _facingDirectionY:

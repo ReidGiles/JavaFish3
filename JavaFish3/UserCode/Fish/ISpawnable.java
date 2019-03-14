@@ -22,6 +22,7 @@ public interface ISpawnable
      * @param xOrientation double giving the orientation about x axis.
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
+     * @param pMind IMovement giving movement behaviour.
      */
     void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException;
 }

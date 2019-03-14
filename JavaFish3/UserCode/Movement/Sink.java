@@ -51,7 +51,7 @@ public class Sink implements IMovement
      */
     public void bounce()
     {
-        if (_y < 0.7)
+        if (_y < 0.6)
         {
             _speed = 0;
         }

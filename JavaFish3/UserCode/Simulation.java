@@ -39,6 +39,7 @@ public class Simulation implements IInputListener
     // DECLARE a boolean that signals when the simulation loop should be exited:
     private boolean endSim = false;
     
+    // DECLARE a boolean that signals when a new fish food object should be created:
     private boolean _newFishFood = false;
     
     //DECLARE an ArrayList of type IFish, call it '_iFish':
@@ -52,8 +53,14 @@ public class Simulation implements IInputListener
     // DECLARE an int, call it '_javaFishSpawn':
     private int _javaFishSpawn;
     
-    // DECLARE an int, call it '_orangeFishSpawn':
-    private int _orangeFishSpawn;
+    // DECLARE an int, call it '_seahorseSpawn':
+    private int _seahorseSpawn;
+    
+    // DECLARE an int, call it '_urchinSpawn':
+    private int _urchinSpawn;
+    
+    // DECLARE an int, call it '_piranhaSpawn':
+    private int _piranhaSpawn;
     
     // DECLARE a reference to an IUpdatableFactory, call it '_factory':
     private IUpdatableFactory _factory;
@@ -64,6 +71,7 @@ public class Simulation implements IInputListener
     // DECLARE an int array, to store any mouse input to, initialise it to {-1,-1}, call it _mouseVal:
     private int[] _mouseVal = {-1,-1};
     
+    // DECLARE a reference to the bubble manager, call it '_bubbleManager':
     BubbleManager _bubbleManager;
     
     /**
@@ -101,6 +109,7 @@ public class Simulation implements IInputListener
         // ADD _inputPublisher implementation to _updatables:
         _updatables.add((IUpdatable) _inputPublisher);
         
+        // ADD _bubbleManager implementation to _updatables:
         _updatables.add((IUpdatable) _bubbleManager);
         
         // SUBSCRIBE this as listener to _inputPublisher:
@@ -112,8 +121,14 @@ public class Simulation implements IInputListener
         // INITIALISE _javaFishSpawn:
         _javaFishSpawn = 2;
         
-        // INITIALISE _orangeFishSpawn:
-        _orangeFishSpawn = 2;
+        // INITIALISE _seahorseSpawn:
+        _seahorseSpawn = 2;
+        
+        // INITIALISE _piranhaSpawn:
+        _piranhaSpawn = 2;
+        
+        // INITIALISE _urchinSpawn:
+        _urchinSpawn = 2;
         
         // INITIALISE _rndStart:
         _rndStart = new RandomGen();
@@ -131,8 +146,13 @@ public class Simulation implements IInputListener
         sim.run();
     }
     
+    /**
+     * METHOD: Populate _updatable list with all initial fish required for aquarium
+     *
+     */
     public void populate()
     {
+        // Create and store javaFish in _updatables, amount decided by '_javaFishSpawn' variable:
         for (int i=0; i<_javaFishSpawn; i++)
         {
             try
@@ -142,19 +162,46 @@ public class Simulation implements IInputListener
             }
             catch (Exception e)
             {
-                System.out.println("Fail");
+                System.out.println("JavaFish spawn failed");
             }
         }
-        for (int i=0; i<_orangeFishSpawn; i++)
+        // Create and store seahorse in _updatables, amount decided by '_seahorseSpawn' variable:
+        for (int i=0; i<_seahorseSpawn; i++)
         {
             try
             {
-                IUpdatable orangeFish = _factory.create(OrangeFish.class);
-                _updatables.add(orangeFish);
+                IUpdatable seahorse = _factory.create(Seahorse.class);
+                _updatables.add(seahorse);
             }
             catch (Exception e)
             {
-                System.out.println("Fail");
+                System.out.println("Seahorse spawn failed");
+            }
+        }
+        // Create and store piranha in _updatables, amount decided by 'piranha' variable:
+        for (int i=0; i<_piranhaSpawn; i++)
+        {
+            try
+            {
+                IUpdatable piranha = _factory.create(Piranha.class);
+                _updatables.add(piranha);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Piranha spawn failed");
+            }
+        }
+        // Create and store urchin in _updatables, amount decided by '_urchinSpawn' variable:
+        for (int i=0; i<_urchinSpawn; i++)
+        {
+            try
+            {
+                IUpdatable urchin = _factory.create(Urchin.class);
+                _updatables.add(urchin);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Urchin spawn failed");
             }
         }
         
@@ -196,13 +243,22 @@ public class Simulation implements IInputListener
                     IMovement mind = new HorizontalSwim(_bubbleManager);
                     ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0, mind);
                 }
-                if (updatable instanceof OrangeFish)
+                if (updatable instanceof Seahorse)
                 {
-                    IMovement mind = new HorizontalSwim();
+                    IMovement mind = new DiagonalSwim(_bubbleManager);
+                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 180, 270, 0, mind);
+                }
+                if (updatable instanceof Piranha)
+                {
+                    IMovement mind = new HorizontalSwim(_bubbleManager);
                     ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0, mind);
                 }
+                if (updatable instanceof Urchin)
+                {
+                    IMovement mind = new HorizontalSwim();
+                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], 0.7, 1, 0, 90, 0, mind);
+                }
             }
-            _bubbleManager.spawnBubble(2,5,1);
             // Start simulation loop:
             while (!endSim)
             {

@@ -8,6 +8,7 @@ import UserCode.ObjectCreation.*;
 import UserCode.Movement.*;
 import Exceptions.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Write a description of class BubbleManager here.
@@ -21,6 +22,7 @@ public class BubbleManager implements IBubbleManager, IUpdatable
     private ISpawnable _bubble;
     private ArrayList<IUpdatable> _bubbles;
     private IUpdatableFactory _factory;
+    private Random _rndGen;
     /**
      * Constructor for objects of class BubbleManager
      */
@@ -29,16 +31,20 @@ public class BubbleManager implements IBubbleManager, IUpdatable
         _world = pWorld;
         _bubbles = new ArrayList<IUpdatable>();
         _factory = new UpdatableFactory();
+        _rndGen = new Random();
     }
     
     public void spawnBubble(double pX, double pY, double pZ)
     {
-        _bubble = new Bubble();
-        _bubbles.add( (IUpdatable) _bubble);
         try
         {
-            IMovement mind = new BubbleSwim();
-            ((ISpawnable) _bubble).spawn(_world, pX, pY, pZ, 0, 90, 0, mind);
+            if (_rndGen.nextInt(60) == 1)
+            {
+                _bubble = new Bubble();
+                _bubbles.add( (IUpdatable) _bubble);
+                IMovement mind = new BubbleSwim();
+                ((ISpawnable) _bubble).spawn(_world, pX, pY, pZ, 0, 90, 0, mind);
+            }
         }
         catch (Exception e)
         {
