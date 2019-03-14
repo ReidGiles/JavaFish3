@@ -45,11 +45,6 @@ public class Simulation implements IInputListener
     //DECLARE an ArrayList of type IFish, call it '_iFish':
     private ArrayList<IUpdatable> _updatables;
     
-    //DECLARE an ArrayList of type IDisplayObject, call it '_displayObjects':
-    private ArrayList<IDisplayObject> _displayObjects;     
-    
-    private IDisplayObject _displayObject;
-    
     // DECLARE an int, call it '_javaFishSpawn':
     private int _javaFishSpawn;
     
@@ -114,9 +109,6 @@ public class Simulation implements IInputListener
         
         // SUBSCRIBE this as listener to _inputPublisher:
         _inputPublisher.subscribe(this);
-        
-        // _displayObjects:
-        _displayObjects = new ArrayList<IDisplayObject>();
         
         // INITIALISE _javaFishSpawn:
         _javaFishSpawn = 2;

@@ -1,8 +1,8 @@
 #BlueJ package file
-dependency1.from=MouseHandler
+dependency1.from=IInputPublisher
 dependency1.to=IInputListener
 dependency1.type=UsesDependency
-dependency2.from=IInputPublisher
+dependency2.from=MouseHandler
 dependency2.to=IInputListener
 dependency2.type=UsesDependency
 objectbench.height=73

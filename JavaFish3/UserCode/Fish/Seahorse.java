@@ -37,7 +37,7 @@ public class Seahorse implements IUpdatable, ISpawnable
     public Seahorse()
     {
         // INSTANTIATE _displayObject:
-        _displayObject = new DisplayObject(_model, _texture, 0.15);
+        _displayObject = new DisplayObject(_model, _texture, 0.25);
         _speed = 0.05;
         _facingDirectionX = -1;
     }
