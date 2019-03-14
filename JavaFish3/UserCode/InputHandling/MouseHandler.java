@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Handles Mouse Events specifically for the Session 15 exercise.
+ * Handles Mouse Events for fish food spawning.
  * 
- * @author Marc Price 
+ * @author Reid Giles and Marc Price 
  * @version 0.1
  */
 public class MouseHandler implements IInputPublisher, IUpdatable

@@ -149,7 +149,9 @@ public class Simulation implements IInputListener
         {
             try
             {
+                // Request an JavaFish from UpdatableFactory:
                 IUpdatable javaFish = _factory.create(JavaFish.class);
+                // Add javaFish to _updatables list:
                 _updatables.add(javaFish);
             }
             catch (Exception e)
@@ -162,7 +164,9 @@ public class Simulation implements IInputListener
         {
             try
             {
+                // Request a seahorse from UpdatableFactory:
                 IUpdatable seahorse = _factory.create(Seahorse.class);
+                // Add seahorse to updatable list:
                 _updatables.add(seahorse);
             }
             catch (Exception e)

@@ -6,8 +6,8 @@ import Framework.Interfaces.IUpdatable;
 /**
  * Write a description of class UpdatableFactory here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Reid Giles and Marc Price
+ * @version 14/03/2019
  */
 public class UpdatableFactory implements IUpdatableFactory
 {

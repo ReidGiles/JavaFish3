@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MouseHandler
-comment0.text=\r\n\ Handles\ Mouse\ Events\ specifically\ for\ the\ Session\ 15\ exercise.\r\n\ \r\n\ @author\ Marc\ Price\ \r\n\ @version\ 0.1\r\n
+comment0.text=\r\n\ Handles\ Mouse\ Events\ for\ fish\ food\ spawning.\r\n\ \r\n\ @author\ Reid\ Giles\ and\ Marc\ Price\ \r\n\ @version\ 0.1\r\n
 comment1.params=
 comment1.target=MouseHandler()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MouseHandler\r\n
