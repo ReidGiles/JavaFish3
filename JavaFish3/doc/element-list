@@ -1,0 +1,10 @@
+Exceptions
+Framework.Implementations
+Framework.Interfaces
+RandomGen
+UserCode
+UserCode.Fish
+UserCode.InputHandling
+UserCode.Managers
+UserCode.Movement
+UserCode.ObjectCreation

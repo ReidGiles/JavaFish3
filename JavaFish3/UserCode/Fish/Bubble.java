@@ -11,7 +11,7 @@ import Framework.Interfaces.IUpdatable;
 import Exceptions.*;
 
 /**
- * Write a description of class Bubble here.
+ * Bubble class.
  *
  * @author Reid Giles
  * @version 15/03/2019
@@ -27,10 +27,13 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
     String _texture = "textures/javaFish/Bubble.png";
     
+    // DECLARE an IMovement to control the fish, call it '_mind':
     private IMovement _mind;
-    private double _speed;
-    private int _facingDirectionX;
+    
+    // DECLARE a double to store the fish starting x position, call it '_startX':
     private double _startX;
+    
+    // DECLARE a double to store the fish starting y position, call it '_startY':
     private double _startY;
     /**
      * Constructor for objects of class Bubble
@@ -66,6 +69,11 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
         _startY = yPosn;
     }
     
+    /**
+     * METHOD: Sets a new mind
+     *
+     * @param pMind An IMind to be set
+     */
     public void deployMind(IMovement pMind)
     {
         _mind = pMind;

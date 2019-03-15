@@ -5,8 +5,8 @@ import java.util.Random;
 /**
  * Write a description of class RandomGen here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Reid Giles and Marc Price
+ * @version 15/103/2019
  */
 public class RandomGen implements IRandomStart
 {
@@ -24,6 +24,11 @@ public class RandomGen implements IRandomStart
         _rndGen = new Random();
     }
     
+    /**
+     * Method setSpeed
+     *
+     * @return double speed value
+     */
     public double setSpeed()
     {
         // SET _randomLow to 0.005:
@@ -36,6 +41,11 @@ public class RandomGen implements IRandomStart
         return _speed;
     }
     
+    /**
+     * Method setLocation
+     *
+     * @return double location
+     */
     public double[] setLocation()
     {
         // SET _randomLocationX to a number between 1 and 10:
@@ -46,6 +56,11 @@ public class RandomGen implements IRandomStart
         return _randomLocation;
     }
     
+    /**
+     * Method setFacingDirection
+     *
+     * @return int representing boundry
+     */
     public int setFacingDirection()
     {
         int direction = _rndGen.nextInt(2);

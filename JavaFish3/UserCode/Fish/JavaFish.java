@@ -9,7 +9,7 @@ import Framework.Interfaces.IUpdatable;
 import Exceptions.*;
 
 /**
- * Write a description of class JavaFish here.
+ * JavaFish class
  *
  * @author Reid Giles
  * @version 15/03/2019

@@ -1,13 +1,16 @@
 #BlueJ class context
 comment0.target=RandomGen
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ RandomGen\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ RandomGen\ here.\r\n\r\n\ @author\ Reid\ Giles\ and\ Marc\ Price\r\n\ @version\ 15/103/2019\r\n
 comment1.params=
 comment1.target=RandomGen()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ RandomGen\r\n
 comment2.params=
 comment2.target=double\ setSpeed()
+comment2.text=\r\n\ Method\ setSpeed\r\n\r\n\ @return\ double\ speed\ value\r\n
 comment3.params=
 comment3.target=double[]\ setLocation()
+comment3.text=\r\n\ Method\ setLocation\r\n\r\n\ @return\ double\ location\r\n
 comment4.params=
 comment4.target=int\ setFacingDirection()
+comment4.text=\r\n\ Method\ setFacingDirection\r\n\r\n\ @return\ int\ representing\ boundry\r\n
 numComments=5

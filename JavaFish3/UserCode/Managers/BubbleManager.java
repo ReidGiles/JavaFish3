@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Write a description of class BubbleManager here.
+ * Bubble Manager
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Reid Giles and Marc Price
+ * @version 15/103/2019
  */
 public class BubbleManager implements IBubbleManager, IUpdatable
 {
@@ -34,6 +34,13 @@ public class BubbleManager implements IBubbleManager, IUpdatable
         _rndGen = new Random();
     }
     
+    /**
+     * METHOD: Allows callers to request bubbles at their position
+     *
+     * @param pX A double for x cord
+     * @param pY A double for y cord
+     * @param pZ A double for z cord
+     */
     public void spawnBubble(double pX, double pY, double pZ)
     {
         try
@@ -53,6 +60,10 @@ public class BubbleManager implements IBubbleManager, IUpdatable
         }
     }
     
+    /**
+     * METHOD: Remove bubbles that leave bounds and update bubbles
+     *
+     */
     public void update()
     {
         for (IUpdatable updatable : _bubbles)

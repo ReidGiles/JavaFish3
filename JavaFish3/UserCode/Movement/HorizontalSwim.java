@@ -103,7 +103,7 @@ public class HorizontalSwim implements IMovement
     }
     
     /**
-     * METHOD:
+     * METHOD: Drives mind behaviour
      *
      */
     public void update()

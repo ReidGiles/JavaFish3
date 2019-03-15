@@ -21,8 +21,8 @@ import java.util.ArrayList;
 /**
  * Simulation is the top-level class for the Aquarium simulation.
  * 
- * @author (your name here!) and Marc Price
- * @version 0.6
+ * @author Reid Giles and Marc Price
+ * @version 15/103/2019
  */
 public class Simulation implements IInputListener
 {
@@ -111,7 +111,7 @@ public class Simulation implements IInputListener
         _inputPublisher.subscribe(this);
         
         // INITIALISE _javaFishSpawn:
-        _javaFishSpawn = 2;
+        _javaFishSpawn = 10;
         
         // INITIALISE _seahorseSpawn:
         _seahorseSpawn = 2;

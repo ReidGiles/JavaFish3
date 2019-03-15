@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.target=BubbleManager
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ BubbleManager\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Bubble\ Manager\r\n\r\n\ @author\ Reid\ Giles\ and\ Marc\ Price\r\n\ @version\ 15/103/2019\r\n
 comment1.params=pWorld
 comment1.target=BubbleManager(Framework.Interfaces.IWorld)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BubbleManager\r\n
 comment2.params=pX\ pY\ pZ
 comment2.target=void\ spawnBubble(double,\ double,\ double)
+comment2.text=\r\n\ METHOD\:\ Allows\ callers\ to\ request\ bubbles\ at\ their\ position\r\n\r\n\ @param\ pX\ A\ double\ for\ x\ cord\r\n\ @param\ pY\ A\ double\ for\ y\ cord\r\n\ @param\ pZ\ A\ double\ for\ z\ cord\r\n
 comment3.params=
 comment3.target=void\ update()
+comment3.text=\r\n\ METHOD\:\ Remove\ bubbles\ that\ leave\ bounds\ and\ update\ bubbles\r\n\r\n
 numComments=4

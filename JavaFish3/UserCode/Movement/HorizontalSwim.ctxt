@@ -14,5 +14,5 @@ comment4.target=void\ bounce()
 comment4.text=\r\n\ METHOD\:\ Notifies\ the\ caller\ when\ it\ leaves\ the\ aquarium\ boundries.\r\n\r\n\ @return\ An\ int\ that\ corrosponds\ with\ the\ boundry\ that\ was\ collided\ with\r\n
 comment5.params=
 comment5.target=void\ update()
-comment5.text=\r\n\ METHOD\:\r\n\r\n
+comment5.text=\r\n\ METHOD\:\ Drives\ mind\ behaviour\r\n\r\n
 numComments=6

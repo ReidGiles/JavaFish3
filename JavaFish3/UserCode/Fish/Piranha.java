@@ -26,10 +26,13 @@ public class Piranha implements IUpdatable, ISpawnable
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
     String _texture = "textures/javaFish/PiranhaGreen.png";
     
+    // DECLARE an IMovement to control the fish, call it '_mind':
     private IMovement _mind;
-    private double _speed;
-    private int _facingDirectionX;
+    
+    // DECLARE a double to store the fish starting x position, call it '_startX':
     private double _startX;
+    
+    // DECLARE a double to store the fish starting y position, call it '_startY':
     private double _startY;
     /**
      * Constructor for objects of class Piranha
@@ -38,8 +41,6 @@ public class Piranha implements IUpdatable, ISpawnable
     {
         // INSTANTIATE _displayObject:
         _displayObject = new DisplayObject(_model, _texture, 0.25);
-        _speed = 0.05;
-        _facingDirectionX = -1;
     }
     
     /**
@@ -68,6 +69,11 @@ public class Piranha implements IUpdatable, ISpawnable
         _startY = yPosn;
     }    
     
+    /**
+     * METHOD: Sets a new mind
+     *
+     * @param pMind An IMind to be set
+     */
     public void deployMind(IMovement pMind)
     {
         _mind = pMind;

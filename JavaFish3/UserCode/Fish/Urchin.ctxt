@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Urchin
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Urchin\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Urchin\ Class\r\n\r\n\ @author\ Reid\ Giles\ and\ Marc\ Price\r\n\ @version\ 15/103/2019\r\n
 comment1.params=
 comment1.target=Urchin()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Urchin\r\n
@@ -9,6 +9,7 @@ comment2.target=void\ spawn(Framework.Interfaces.IWorld,\ double,\ double,\ doub
 comment2.text=\r\n\ METHOD\:\ spawn\ the\ Urchin\ at\ the\ given\ position/orientation\r\n\ @param\ world\ IWorld\ representing\ the\ 3D\ world.\r\n\ @param\ Positionn\ double\ giving\ the\ position\ coordinates\ (x,y,z).\r\n\ @param\ yPosn\ double\ giving\ the\ position\ along\ y\ axis.\r\n\ @param\ zPosn\ double\ giving\ position\ along\ z\ axis.\r\n\ @param\ xOrientation\ double\ giving\ the\ orientation\ about\ x\ axis.\r\n\ @param\ yOrientation\ double\ giving\ the\ orientation\ about\ y\ axis.\r\n\ @param\ zOrientation\ double\ giving\ orientation\ about\ z\ axis.\r\n\ @param\ pMind\ IMovement\ giving\ movement\ behaviour.\r\n
 comment3.params=pMind
 comment3.target=void\ deployMind(UserCode.Movement.IMovement)
+comment3.text=\r\n\ METHOD\:\ Sets\ a\ new\ mind\r\n\r\n\ @param\ pMind\ An\ IMind\ to\ be\ set\r\n
 comment4.params=
 comment4.target=void\ update()
 comment4.text=\r\n\ METHOD\:\ to\ set\ the\ next\ frame\ of\ the\ simulation,\ called\ on\ each\ pass\ of\ the\ simulation\r\n\r\n

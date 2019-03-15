@@ -8,8 +8,8 @@ import UserCode.Movement.*;
 /**
  * Write a description of interface ISpawnable here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Reid Giles and Marc Price
+ * @version 15/103/2019
  */
 public interface ISpawnable
 {
