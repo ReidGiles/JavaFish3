@@ -25,7 +25,7 @@ public class FishFood implements IUpdatable, ISpawnable
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
     String _texture = "textures/javaFish/FishFood.png";
     
-    private IMovement _sink;
+    private IMovement _mind;
     private double _speed;
     private double _startX;
     private double _startY;
@@ -50,7 +50,7 @@ public class FishFood implements IUpdatable, ISpawnable
      * @param zOrientation double giving orientation about z axis.
      * @param pMind IMovement giving movement behaviour.
      */
-    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
+    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation) throws WorldDoesNotExistException
     {
         // SET position of fish food by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
@@ -63,8 +63,12 @@ public class FishFood implements IUpdatable, ISpawnable
         
         _startX = xPosn;
         _startY = yPosn;
-        _sink = pMind;
-        pMind.initialise(_displayObject, _startX, _startY);
+    }
+    
+    public void deployMind(IMovement pMind)
+    {
+        _mind = pMind;
+        _mind.initialise(_displayObject, _startX, _startY);
     }
     
     /**
@@ -73,6 +77,6 @@ public class FishFood implements IUpdatable, ISpawnable
      */
     public void update()
     {
-        _sink.update();
+        _mind.update();
     }
 }

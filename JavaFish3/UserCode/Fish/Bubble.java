@@ -51,7 +51,7 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
      * @param zOrientation double giving orientation about z axis.
      * @param pMind IMovement giving movement behaviour.
      */
-    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
+    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation) throws WorldDoesNotExistException
     {
         // SET position of JavaFish by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
@@ -64,7 +64,10 @@ public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
         
         _startX = xPosn;
         _startY = yPosn;
-        //_hSwim = new HorizontalSwim(_displayObject, _startX);
+    }
+    
+    public void deployMind(IMovement pMind)
+    {
         _mind = pMind;
         _mind.initialise(_displayObject, _startX, _startY);
     }

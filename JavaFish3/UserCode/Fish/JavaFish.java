@@ -4,7 +4,6 @@ import Framework.Interfaces.IDisplayObject;
 import Framework.Interfaces.IWorld;
 import Framework.Implementations.DisplayObject;
 import UserCode.Movement.IMovement;
-import UserCode.Movement.HorizontalSwim;
 import UserCode.Managers.*;
 import Framework.Interfaces.IUpdatable;
 import Exceptions.*;
@@ -53,7 +52,7 @@ public class JavaFish implements IUpdatable, ISpawnable
      * @param zOrientation double giving orientation about z axis.
      * @param pMind IMovement giving movement behaviour.
      */
-    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation, IMovement pMind) throws WorldDoesNotExistException
+    public void spawn(IWorld world, double xPosn, double yPosn, double zPosn, double xOrientation, double yOrientation, double zOrientation) throws WorldDoesNotExistException
     {
         // SET position of JavaFish by translating _displayObject:
         _displayObject.translate(xPosn, yPosn, zPosn);
@@ -66,10 +65,20 @@ public class JavaFish implements IUpdatable, ISpawnable
         
         _startX = xPosn;
         _startY = yPosn;
-        //_hSwim = new HorizontalSwim(_displayObject, _startX);
+    }
+    
+    /**
+     * METHOD: Sets the fish mind
+     *
+     * @param pMind A behaviour class that controls fish behaviours in the aquarium
+     */
+    public void deployMind(IMovement pMind)
+    {
+        // INITIALISE _mind, set it to pMind:
         _mind = pMind;
+        // Pass the mind display object and starting position:
         _mind.initialise(_displayObject, _startX, _startY);
-    }    
+    }
     
     /**
      * METHOD: to set the next frame of the simulation, called on each pass of the simulation

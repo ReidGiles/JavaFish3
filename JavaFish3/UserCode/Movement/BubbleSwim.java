@@ -1,7 +1,6 @@
 package UserCode.Movement;
 
 import Exceptions.*;
-import RandomGen.*;
 import Framework.Interfaces.IDisplayObject;
 import Framework.Interfaces.IBoundsCheck;
 import Framework.Implementations.DisplayObject;
@@ -9,8 +8,8 @@ import Framework.Implementations.DisplayObject;
 /**
  * Write a description of class BubbleSwim here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Reid Giles
+ * @version 15/03/2019
  */
 public class BubbleSwim implements IMovement, IBoundsCheck
 {
@@ -30,8 +29,6 @@ public class BubbleSwim implements IMovement, IBoundsCheck
     private int _facingDirectionY;
     private float _timeCounter;
     private double _rotationY;
-    // DECLARE a reference to an IRandomStart, call it '_rndStart':
-    private IRandomStart _rndStart;
     // DECLARE a reference to an IDisplayObject, call it '_displayObject':
     private IDisplayObject _displayObject;
     /**
@@ -39,8 +36,6 @@ public class BubbleSwim implements IMovement, IBoundsCheck
      */
     public BubbleSwim()
     {
-        // INITIALISE _rndStart:
-        _rndStart = new RandomGen();
         // INITIALISE _initialSpeed:
         _initialSpeed = 0.05;
         // INITIALISE _facingDirectionX:
@@ -60,6 +55,7 @@ public class BubbleSwim implements IMovement, IBoundsCheck
         _displayObject = pDisplayObject;
         // INITIALISE _x, set it to pX:
         _x = pX;
+        // INITIALISE _y, set it to pY:
         _y = pY;
     }
     
@@ -84,9 +80,11 @@ public class BubbleSwim implements IMovement, IBoundsCheck
         _rotationY = Math.cos(_timeCounter);
         // Length of rotation on y axis:
         _speedY = (float)_rotationY * 0.03;
-        
+        // Move fish food through the aquarium:
         _displayObject.translate(_speedY,_speedX, 0);
+        // Check for collision:
         boundsAlert();
+        // Keep track of position in aquarium:
         _y += _speedX;
     }
 }

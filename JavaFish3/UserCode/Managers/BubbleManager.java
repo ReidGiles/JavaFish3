@@ -43,7 +43,8 @@ public class BubbleManager implements IBubbleManager, IUpdatable
                 _bubble = new Bubble();
                 _bubbles.add( (IUpdatable) _bubble);
                 IMovement mind = new BubbleSwim();
-                ((ISpawnable) _bubble).spawn(_world, pX, pY, pZ, 0, 90, 0, mind);
+                ((ISpawnable) _bubble).spawn(_world, pX, pY, pZ, 0, 90, 0);
+                ((ISpawnable) _bubble).deployMind(mind);
             }
         }
         catch (Exception e)

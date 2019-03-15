@@ -2,16 +2,16 @@ package UserCode.Movement;
 
 import Exceptions.*;
 import Framework.Interfaces.IDisplayObject;
-import Framework.Implementations.DisplayObject;
 
 /**
  * Sink is a movement behaviour returns movements values
  *
  * @author Reid Giles
- * @version 25/01/2019
+ * @version 15/03/2019
  */
 public class Sink implements IMovement
 {
+    // DECLARE a double to store object x value, call it '_x':
     private double _x;
     // DECLARE a double to store object y value, call it '_y':
     private double _y;
@@ -22,45 +22,55 @@ public class Sink implements IMovement
     /**
      * Sink Constructor
      *
-     * @param pSpeed Passed speed
-     * @param pFacingDirectionX Passed facingDirectionX
      */
     public Sink()
     {
-        // INITIALISE _displayObject, set it to pDisplayObject:
-        //_displayObject = pDisplayObject;
         // INITIALISE _speed, set it to a random speed (between ''):
         _speed = 0.005;
-        // INITIALISE _y, set it to pY:
-        //_y = pY;
     }
     
+    /**
+     * METHOD: Initialise the behaviour with a relevant displayObject and coordinates
+     *
+     * @param pDisplayObject Reference to the display object of the fish that should be controlled
+     * @param pX Starting x cord of the fish that should be controlled
+     * @param pY Starting y cord of the fish that should be controlled
+     */
     public void initialise(IDisplayObject pDisplayObject, double pX, double pY)
     {
         // INITIALISE _displayObject, set it to pDisplayObject:
         _displayObject = pDisplayObject;
+        // INITIALISE _X, set it to pX:
         _x = pX;
-        // INITIALISE _x, set it to pX:
+        // INITIALISE _Y, set it to pY:
         _y = pY;
     }
     
     /**
-     * METHOD: Notifies the caller when it leaves the aquarium boundries.
+     * METHOD: Stops the fish food when it reaches the bottom of the aquarium
      *
-     * @return An int that corrosponds with the boundry that was collided with
      */
     public void bounce()
     {
+        // If the fish food reaches the bottom of the aquarium:
         if (_y < 0.6)
         {
+            // Movement stops:
             _speed = 0;
         }
     }
     
+    /**
+     * METHOD: Updates behaviour, driving object translation
+     *
+     */
     public void update()
     {
+        // Move fish food through the aquarium:
         _displayObject.translate(0, -_speed, 0);
+        // Check for collision with floor:
         bounce();
+        // Keep track of position in aquarium:
         _y -= _speed;
     }
 }

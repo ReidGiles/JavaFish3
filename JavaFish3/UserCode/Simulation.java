@@ -234,25 +234,45 @@ public class Simulation implements IInputListener
             // Add each updatable in updatable to the aquarium:
             for (IUpdatable updatable : _updatables)
             {
+                // IF the updatable is of type JavaFish:
                 if (updatable instanceof JavaFish)
                 {
+                    // Create a mind for the updatable:
                     IMovement mind = new HorizontalSwim(_bubbleManager);
-                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0, mind);
+                    // Initialise the updatable with a position and orientation:
+                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0);
+                    // Initialise the updatable with a mind:
+                    ((ISpawnable) updatable).deployMind(mind);
                 }
+                // IF the updatable is of type Seahorse:
                 if (updatable instanceof Seahorse)
                 {
+                    // Create a mind for the updatable:
                     IMovement mind = new DiagonalSwim(_bubbleManager);
-                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 180, 270, 0, mind);
+                    // Initialise the updatable with a position and orientation:
+                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 180, 270, 0);
+                    // Initialise the updatable with a mind:
+                    ((ISpawnable) updatable).deployMind(mind);
                 }
+                // IF the updatable is of type Piranha:
                 if (updatable instanceof Piranha)
                 {
+                    // Create a mind for the updatable:
                     IMovement mind = new HorizontalSwim(_bubbleManager);
-                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0, mind);
+                    // Initialise the updatable with a position and orientation:
+                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], _rndStart.setLocation()[1], 1, 0, 90, 0);
+                    // Initialise the updatable with a mind:
+                    ((ISpawnable) updatable).deployMind(mind);
                 }
+                // IF the updatable is of type Urchin:
                 if (updatable instanceof Urchin)
                 {
+                    // Create a mind for the updatable:
                     IMovement mind = new HorizontalSwim();
-                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], 0.7, 1, 0, 90, 0, mind);
+                    // Initialise the updatable with a position and orientation:
+                    ((ISpawnable) updatable).spawn(_world, _rndStart.setLocation()[0], 0.7, 1, 0, 90, 0);
+                    // Initialise the updatable with a mind:
+                    ((ISpawnable) updatable).deployMind(mind);
                 }
             }
             // Start simulation loop:
@@ -270,6 +290,18 @@ public class Simulation implements IInputListener
                 // CHECK if a new fish food has been requested:
                 if (_newFishFood)
                 {
+                    // The below code is an example of how the implemented strategy pattern can be used to change fish minds at runtime if needed
+                    /*for (IUpdatable updatable : _updatables)
+                    {
+                        // IF the updatable is of type JavaFish:
+                        if (updatable instanceof JavaFish)
+                        {
+                            IMovement newMind = new Sink();
+                            ((ISpawnable)updatable).deployMind(newMind);
+                        }
+                    }*/
+                    
+                    
                     // RESET _newFishFood to false:
                     _newFishFood = false;
                     
@@ -286,7 +318,8 @@ public class Simulation implements IInputListener
                         
                         // SPAWN fish food in 3D world:
                         IMovement mind = new Sink();
-                        ((ISpawnable) fishFood).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2], mind);
+                        ((ISpawnable) fishFood).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2]);
+                        ((ISpawnable) fishFood).deployMind(mind);
                     }
                     catch (Exception e)
                     {

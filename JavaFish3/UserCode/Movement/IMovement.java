@@ -12,6 +12,17 @@ import Framework.Implementations.DisplayObject;
  */
 public interface IMovement
 {
+    /**
+     * METHOD: Updates behaviour, driving object translation
+     *
+     */
     void update();
+    /**
+     * METHOD: Initialise the behaviour with a relevant displayObject and coordinates
+     *
+     * @param pDisplayObject Reference to the display object of the fish that should be controlled
+     * @param pX Starting x cord of the fish that should be controlled
+     * @param pY Starting y cord of the fish that should be controlled
+     */
     void initialise(IDisplayObject pDisplayObject, double pX, double pY);
 }
