@@ -1,5 +1,7 @@
 #BlueJ class context
-comment0.params=
-comment0.target=void\ update()
-comment0.text=\r\n\ METHOD\:\ change\ to\ IUpdatable\ for\ next\ frame\r\n\ \r\n
-numComments=1
+comment0.target=IUpdatable
+comment0.text=\r\n\ Any\ object\ that\ needs\ to\ be\ updated\ in\ an\ update\ loop\ should\ implement\ IUpdatable.\r\n\ \r\n\ @author\ Marc\ Price\ \r\n\ @version\ 0.6\r\n
+comment1.params=
+comment1.target=void\ update()
+comment1.text=\r\n\ METHOD\:\ change\ to\ IUpdatable\ for\ next\ frame\r\n\ \r\n
+numComments=2

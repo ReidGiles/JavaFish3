@@ -1,11 +1,13 @@
 #BlueJ class context
-comment0.params=
-comment0.target=int\ getKey()
-comment0.text=\r\n\ METHOD\:\ get\ keyboard\ input.\r\n\r\n\ @return\ the\ key\ value\ (-1\ if\ no\ key\ has\ been\ pressed\ since\ last\ check).\r\n
+comment0.target=IInput
+comment0.text=\r\n\ IInput\ implementations\ access\ input\ from\ Env3D.\r\n\ Note\ that\ you\ may\ need\ to\ extend\ this\ if\ there\ are\ specific\ functions\ you\ need.\r\n\ \r\n\ @author\ Marc\ Price\ \r\n\ @version\ 0.6\r\n
 comment1.params=
-comment1.target=int\ getMouseClicked()
-comment1.text=\r\n\ METHOD\:\ check\ if\ a\ mouse\ button\ has\ been\ clicked.\r\n\r\n\ @return\ the\ button\ value\:\ 0\=\ left\ button;\ 1\=\ middle\ button;\ 2\=\ right\ button.\r\n
+comment1.target=int\ getKey()
+comment1.text=\r\n\ METHOD\:\ get\ keyboard\ input.\r\n\r\n\ @return\ the\ key\ value\ (-1\ if\ no\ key\ has\ been\ pressed\ since\ last\ check).\r\n
 comment2.params=
-comment2.target=int[]\ getMousePointer()
-comment2.text=\r\n\ METHOD\:\ check\ if\ a\ mouse\ button\ has\ been\ clicked.\r\n\r\n\ @return\ the\ pointer\ value\ as\ a\ 2-element\ array\ of\ ints\:\ return[0]\=X,\ return[1]\=Y.\r\n
-numComments=3
+comment2.target=int\ getMouseClicked()
+comment2.text=\r\n\ METHOD\:\ check\ if\ a\ mouse\ button\ has\ been\ clicked.\r\n\r\n\ @return\ the\ button\ value\:\ 0\=\ left\ button;\ 1\=\ middle\ button;\ 2\=\ right\ button.\r\n
+comment3.params=
+comment3.target=int[]\ getMousePointer()
+comment3.text=\r\n\ METHOD\:\ check\ if\ a\ mouse\ button\ has\ been\ clicked.\r\n\r\n\ @return\ the\ pointer\ value\ as\ a\ 2-element\ array\ of\ ints\:\ return[0]\=X,\ return[1]\=Y.\r\n
+numComments=4

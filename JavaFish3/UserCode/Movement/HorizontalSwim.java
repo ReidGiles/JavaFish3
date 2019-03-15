@@ -26,6 +26,7 @@ public class HorizontalSwim implements IMovement
     private IRandomStart _rndStart;
     // DECLARE a reference to an IDisplayObject, call it '_displayObject':
     private IDisplayObject _displayObject;
+    //DECLARE a reference to a IBubbleManager, call it '_bubbleManager':
     private IBubbleManager _bubbleManager;
     
     /**
@@ -68,6 +69,7 @@ public class HorizontalSwim implements IMovement
         _displayObject = pDisplayObject;
         // INITIALISE _x, set it to pX:
         _x = pX;
+        // INITIALISE _y, set it to pY:
         _y = pY;
         // Set initial rotation based on outcome of _facingDirectionX initialisation:
         if (_facingDirectionX == 1)
@@ -83,14 +85,19 @@ public class HorizontalSwim implements IMovement
      */
     public void bounce()
     {
+        // IF the fish hits the edge of the aquarium:
         if (_x < 1)
         {
+            // Reverse speed:
             _speed *= -1;
+            // Turn around:
             _displayObject.rotate(0,180,0);
         }
         else if (_x > 9)
         {
+            // Reverse speed:
             _speed *= -1;
+            // Turn around
             _displayObject.rotate(0,180,0);
         }
     }
@@ -101,9 +108,13 @@ public class HorizontalSwim implements IMovement
      */
     public void update()
     {
+        // Move fish food through the aquarium:
         _displayObject.translate(_speed,0, 0);
+        // Check for collision
         bounce();
+        // Keep track of position in aquarium:
         _x += _speed;
+        // IF a bubble manager exists, request a bubble at current position:
         if (_bubbleManager != null)
         {
             _bubbleManager.spawnBubble(_x, _y, 1);

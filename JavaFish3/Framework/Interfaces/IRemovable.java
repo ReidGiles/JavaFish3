@@ -9,5 +9,10 @@ package Framework.Interfaces;
  */
 public interface IRemovable
 {
+    /**
+     * METHOD: Remove object from aquarium:
+     *
+     * @param pWorld A reference to world, used to remove display object from aquarium:
+     */
     void remove(IWorld pWorld);
 }

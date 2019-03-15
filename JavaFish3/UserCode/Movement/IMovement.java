@@ -1,6 +1,5 @@
 package UserCode.Movement;
 import Framework.Interfaces.IDisplayObject;
-import Framework.Implementations.DisplayObject;
 
 
 /**

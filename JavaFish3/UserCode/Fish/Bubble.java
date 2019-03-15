@@ -13,8 +13,8 @@ import Exceptions.*;
 /**
  * Write a description of class Bubble here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Reid Giles
+ * @version 15/03/2019
  */
 public class Bubble implements IUpdatable, ISpawnable, IRemovable, IBoundsCheck
 {

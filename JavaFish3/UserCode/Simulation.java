@@ -290,7 +290,7 @@ public class Simulation implements IInputListener
                 // CHECK if a new fish food has been requested:
                 if (_newFishFood)
                 {
-                    // The below code is an example of how the implemented strategy pattern can be used to change fish minds at runtime if needed
+                    // The below commented out code is an example of how the implemented strategy pattern can be used to change fish minds at runtime if needed
                     /*for (IUpdatable updatable : _updatables)
                     {
                         // IF the updatable is of type JavaFish:

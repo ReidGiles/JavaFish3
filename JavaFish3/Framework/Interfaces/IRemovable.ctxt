@@ -3,4 +3,5 @@ comment0.target=IRemovable
 comment0.text=\r\n\ Write\ a\ description\ of\ interface\ IRemovable\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=pWorld
 comment1.target=void\ remove(IWorld)
+comment1.text=\r\n\ METHOD\:\ Remove\ object\ from\ aquarium\:\r\n\r\n\ @param\ pWorld\ A\ reference\ to\ world,\ used\ to\ remove\ display\ object\ from\ aquarium\:\r\n
 numComments=2
